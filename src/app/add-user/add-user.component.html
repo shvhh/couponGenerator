@@ -14,7 +14,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-black label-floating is-empty">
                                         <label class="control-label">Flat Number</label>
-                                        <input type="text" required [(ngModel)]="newUser.flatId" class="form-control" name="flatno" #flatno="ngModel">
+                                        <input type="text" required [(ngModel)]="newUser.flat" class="form-control" name="flatno" #flatno="ngModel">
                                     </div>
                                     <div *ngIf="flatno.invalid && (flatno.dirty || flatno.touched)" class="alert alert-danger">
                                         <div *ngIf="flatno.errors.required">
@@ -40,7 +40,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-black label-floating is-empty">
                                         <label class="control-label">Meter Id</label>
-                                        <input required [(ngModel)]="newUser.meter" type="text" class="form-control" #meter="ngModel" name="meter">
+                                        <input required [(ngModel)]="newUser.meter" type="number" class="form-control" #meter="ngModel" name="meter">
                                     </div>
                                     <div *ngIf="meter.invalid && (meter.dirty || meter.touched)" class="alert alert-danger">
                                         <div *ngIf="meter.errors.required">
@@ -54,7 +54,7 @@
                                     <div class="form-group form-black label-floating is-empty">
                                         <label class="control-label">Mobile No.</label>
                                         <input required [attr.min]="5000000000" [attr.max]="9999999999" [min]="5000000000" [max]="9999999999" [(ngModel)]="newUser.mobile"
-                                            type="text" class="form-control" #mobile="ngModel" name="mobile">
+                                            type="number" class="form-control" #mobile="ngModel" name="mobile">
                                     </div>
                                     <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="alert alert-danger">
                                         <div *ngIf="mobile.errors.required">
@@ -84,33 +84,16 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-black label-floating is-empty">
                                         <label class="control-label">Email Id</label>
-                                        <input type="email" class="form-control" email [(ngModel)]="newUser.email" #email="ngModel" name="email">
-                                    </div>
-                                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
-                                        <div *ngIf="email.errors.email">
-                                            Email Id Should be valid
-                                        </div>
+                                        <input type="email" class="form-control" [(ngModel)]="newUser.email" name="email">
                                     </div>
                                 </div>
                             </div>
-
-
-
-
-
-
                             <button type="submit" (click)='addUser()' class="btn btn-danger pull-right">Add Customer</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
         </div>
     </div>
 </div>

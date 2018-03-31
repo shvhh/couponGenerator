@@ -3,9 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-//import { DataTablesModule } from 'angular-datatables';
+// import { DataTablesModule } from 'angular-datatables';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { AppComponent } from './app.component';
 
@@ -22,6 +24,8 @@ import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { HistoryComponent } from './history/history.component';
+import { DataService } from './data.service';
+import { PopupComponent } from './popup/popup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +41,8 @@ import { HistoryComponent } from './history/history.component';
     UpdateUserComponent,
     UpdateTeriffComponent,
     ChangePasswordComponent,
-    HistoryComponent
+    HistoryComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
@@ -46,10 +51,10 @@ import { HistoryComponent } from './history/history.component';
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    // DataTablesModule
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

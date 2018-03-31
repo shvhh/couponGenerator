@@ -18,6 +18,7 @@ export class AddUserComponent implements OnInit {
 
   ngOnInit() { }
   addUser() {
-    addCustomer(this.newUser, console.log);
+    alert('i am ok');
+    //  addCustomer(this.newUser, console.log);
   }
 }
