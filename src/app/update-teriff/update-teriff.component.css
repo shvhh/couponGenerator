@@ -1,0 +1,12 @@
+.zero-left-right-padding {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+.padding-leftright {
+  padding: 0px 5px;
+}
+
+input {
+  padding-right: 8px;
+}

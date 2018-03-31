@@ -1,0 +1,116 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Enter Details Of Customer</h4>
+                        <p class="category">Complete your profile</p>
+                    </div>
+                    <div class="card-content">
+                        <form>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="control-label">Flat Number</label>
+                                        <input type="text" required [(ngModel)]="newUser.flatId" class="form-control" name="flatno" #flatno="ngModel">
+                                    </div>
+                                    <div *ngIf="flatno.invalid && (flatno.dirty || flatno.touched)" class="alert alert-danger">
+                                        <div *ngIf="flatno.errors.required">
+                                            Flat No. is required.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="control-label">Customer Name</label>
+                                        <input required [(ngModel)]="newUser.name" type="text" class="form-control" #name="ngModel" name="name">
+                                    </div>
+                                    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                                        <div *ngIf="name.errors.required">
+                                            Customer Name is required.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="control-label">Meter Id</label>
+                                        <input required [(ngModel)]="newUser.meter" type="text" class="form-control" #meter="ngModel" name="meter">
+                                    </div>
+                                    <div *ngIf="meter.invalid && (meter.dirty || meter.touched)" class="alert alert-danger">
+                                        <div *ngIf="meter.errors.required">
+                                            Meter Id is required.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="control-label">Mobile No.</label>
+                                        <input required [attr.min]="5000000000" [attr.max]="9999999999" [min]="5000000000" [max]="9999999999" [(ngModel)]="newUser.mobile"
+                                            type="text" class="form-control" #mobile="ngModel" name="mobile">
+                                    </div>
+                                    <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="alert alert-danger">
+                                        <div *ngIf="mobile.errors.required">
+                                            Flat No. is required.
+                                        </div>
+                                        <div *ngIf="mobile.errors.min || mobile.errors.max">
+                                            Mobile No. Should be Valid 10 digit Number
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio" value="A" [(ngModel)]="newUser.category">Category A
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio" value="B" [(ngModel)]="newUser.category">Category B
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="control-label">Email Id</label>
+                                        <input type="email" class="form-control" email [(ngModel)]="newUser.email" #email="ngModel" name="email">
+                                    </div>
+                                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                                        <div *ngIf="email.errors.email">
+                                            Email Id Should be valid
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                            <button type="submit" (click)='addUser()' class="btn btn-danger pull-right">Add Customer</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
