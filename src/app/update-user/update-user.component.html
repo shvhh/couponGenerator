@@ -8,7 +8,7 @@
                         <p class="category">Complete your profile</p>
                     </div>
                     <div class="card-content">
-                        <form>
+                        <form #formRef="ngForm">
 
                             <div class="row">
                                 <div class="col-md-12">
@@ -17,7 +17,7 @@
                                         <input list="browsers" (change)='loadDetails($event)' placeholder="Flat Number" class="form-control">
 
                                         <datalist id="browsers">
-                                            <option *ngFor="let flat of flatList" value="{{flat}}">
+                                            <option *ngFor="let flat of flatList" value="{{flat.flat}}">
 
                                         </datalist>
                                     </div>
@@ -26,12 +26,16 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group form-black label-floating is-empty">
-                                        <label class="control-label">Customer Name</label>
-                                        <input required [(ngModel)]="updateUser.name" type="text" class="form-control" #name="ngModel" name="name">
+
+                                        <input placeholder="Customer Name" pattern="[A-Za-z ]+" required [(ngModel)]="updateUser.name" type="text" class="form-control"
+                                            #name="ngModel" name="name">
                                     </div>
                                     <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                                        <div *ngIf="name.errors.pattern">
+                                            Enter a valid Customer Name.
+                                        </div>
                                         <div *ngIf="name.errors.required">
-                                            Customer Name is required.
+                                            Customer Name is Required.
                                         </div>
                                     </div>
                                 </div>
@@ -39,28 +43,32 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group form-black label-floating is-empty">
-                                        <label class="control-label">Meter Id</label>
-                                        <input required [(ngModel)]="updateUser.meter" type="text" class="form-control" #meter="ngModel" name="meter">
+
+                                        <input placeholder="Meter Id" pattern="[0-9]{3,4}" required [(ngModel)]="updateUser.meter" type="text" class="form-control"
+                                            #meter="ngModel" name="meter">
                                     </div>
                                     <div *ngIf="meter.invalid && (meter.dirty || meter.touched)" class="alert alert-danger">
                                         <div *ngIf="meter.errors.required">
                                             Meter Id is required.
                                         </div>
+                                        <div *ngIf="meter.errors.pattern">
+                                            Enter a valid Meter Id.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group form-black label-floating is-empty">
-                                        <label class="control-label">Mobile No.</label>
-                                        <input required [attr.min]="5000000000" [attr.max]="9999999999" [min]="5000000000" [max]="9999999999" [(ngModel)]="updateUser.mobile"
-                                            type="text" class="form-control" #mobile="ngModel" name="mobile">
+
+                                        <input placeholder="Mobile No." required [(ngModel)]="updateUser.mobile" pattern="[5-9][0-9]{9}" type="text" class="form-control"
+                                            #mobile="ngModel" name="mobile">
                                     </div>
                                     <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="alert alert-danger">
                                         <div *ngIf="mobile.errors.required">
-                                            Flat No. is required.
+                                            Mobile No. is required.
                                         </div>
-                                        <div *ngIf="mobile.errors.min || mobile.errors.max">
+                                        <div *ngIf="mobile.errors.pattern">
                                             Mobile No. Should be Valid 10 digit Number
                                         </div>
                                     </div>
@@ -69,6 +77,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
+
                                     <div class="form-group form-black label-floating is-empty">
                                         <label class="radio-inline">
                                             <input type="radio" name="optradio" value="A" [(ngModel)]="updateUser.category">Category A
@@ -82,22 +91,19 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group form-black label-floating is-empty">
-                                        <label class="control-label">Email Id</label>
-                                        <input type="email" class="form-control" email [(ngModel)]="updateUser.email" #email="ngModel" name="email">
+
+                                        <input placeholder="Email Id" type="email" pattern="[A-Ba-z0-9-_.]+@[a-z0-9]+.[a-z0-9]{2,3}" class="form-control" [(ngModel)]="updateUser.email"
+                                            name="email" #email="ngModel">
                                     </div>
                                     <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
-                                        <div *ngIf="email.errors.email">
-                                            Email Id Should be valid
+
+                                        <div *ngIf="email.errors.pattern">
+                                            Email Should be Valid
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-
-
-
-
-                            <button type="submit" class="btn btn-danger pull-right">Add Customer</button>
+                            <button [disabled]="myForm.invalid || dataLoadFailed" type="submit" (click)='updateDetails()' class="btn btn-danger pull-right">Add Customer</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>

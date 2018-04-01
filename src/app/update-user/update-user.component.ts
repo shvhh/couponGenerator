@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 declare function loadFlatList(callback): any;
 declare function loadCustomer(flatId, callback): any;
 declare function updateCustomer(flatId, updateData, callback): any;
@@ -16,26 +16,55 @@ export class UpdateUserComponent implements OnInit {
     category: 'A',
     mobile: ''
   };
-  flatList = ['hello', 'hello1', 'loadFlatList', 'loadFlatList'];
-  constructor() {}
+  dataLoadFailed = true;
+  @ViewChild('formRef')
+  myForm: any;
+  flatList = [];
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loadCustomerList();
+  }
 
   loadCustomerList() {
     loadFlatList((err, list) => {
+      console.log(list);
       this.flatList = list;
     });
   }
 
   loadDetails(event) {
-    console.log();
-    loadCustomer(event.target.value, (err, list) => {
-      this.updateUser = list[0];
+    loadCustomer(event.target.value, (err, customerData) => {
+      this.dataLoadFailed = true;
+      if (err) { alert('There is some technical issue please contact you vendor'); }
+      else {
+        if (customerData.length > 0) {
+          this.updateUser = customerData[0];
+          this.dataLoadFailed = false;
+        }
+        else {
+          alert('no record Found');
+        }
+      }
     });
   }
   updateDetails() {
     updateCustomer(this.updateUser.flat, this.updateUser, (err, updated) => {
-      console.log(updated);
+      console.log(err, updated);
+      if (err) { alert('There is some technical issue please contact you vendor'); }
+      else {
+        this.myForm.reset();
+        this.updateUser = {
+          flat: '',
+          name: '',
+          email: '',
+          meter: '',
+          category: 'A',
+          mobile: ''
+        };
+        this.dataLoadFailed = true;
+        alert('User Updated Successfully');
+      }
     });
   }
 }

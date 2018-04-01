@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 declare function addCustomer(data, callback): any;
 @Component({
   selector: 'app-add-user',
@@ -6,6 +6,9 @@ declare function addCustomer(data, callback): any;
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
+
+  @ViewChild('formRef')
+  myForm: any;
   newUser = {
     flat: '',
     name: '',
@@ -16,9 +19,25 @@ export class AddUserComponent implements OnInit {
   };
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log(this.myForm);
+  }
   addUser() {
-    alert('i am ok');
-    //  addCustomer(this.newUser, console.log);
+    addCustomer(this.newUser, (err, data) => {
+      if (err) {
+        alert('There is some technical issue please contact you vendor');
+      } else {
+        this.myForm.reset();
+        this.newUser = {
+          flat: '',
+          name: '',
+          email: '',
+          meter: '',
+          category: 'A',
+          mobile: ''
+        };
+        alert('User added Successfully');
+      }
+    });
   }
 }
