@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 declare function loadterrif(callback): any;
 declare function updateterrif(data, callback): any;
 @Component({
@@ -8,31 +8,45 @@ declare function updateterrif(data, callback): any;
 })
 export class UpdateTeriffComponent implements OnInit {
   CategoryA = {
-    mainRateMain: '',
-    mainRateDecimal: '1',
-    mainLimit: '',
-    DGRateMain: '',
-    DGRateDecimal: '1',
-    DGLimit: ''
+    mainRateMain: '6',
+    mainRateDecimal: '2',
+    mainLimit: '2000',
+    DGRateMain: '10',
+    DGRateDecimal: '3',
+    DGLimit: '1000'
   };
   CategoryB = {
-    mainRateMain: '',
-    mainRateDecimal: '1',
-    mainLimit: '',
-    DGRateMain: '',
+    mainRateMain: '4',
+    mainRateDecimal: '2',
+    mainLimit: '750',
+    DGRateMain: '5',
     DGRateDecimal: '1',
-    DGLimit: ''
+    DGLimit: '500'
   };
-  constructor() {}
+  @ViewChild('formRef')
+  myForm: any;
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loadData();
+  }
   loadData() {
     loadterrif((err, data) => {
-      this.CategoryA = data[0].A;
-      this.CategoryB = data[0].B;
+      if (err) { alert('There is some technical issue please contact you vendor'); }
+      else {
+        if (data.length) {
+          this.CategoryA = data[0].A;
+          this.CategoryB = data[0].B;
+        }
+      }
     });
   }
   updateData() {
-    updateterrif({ A: this.CategoryA, B: this.CategoryB }, (err, data) => {});
+    updateterrif({ A: this.CategoryA, B: this.CategoryB }, (err, data) => {
+      if (err) { alert('There is some technical issue please contact you vendor'); }
+      else {
+        alert('User Updated Successfully');
+      }
+    });
   }
 }

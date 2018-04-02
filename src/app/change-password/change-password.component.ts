@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 declare function changePassword(data, callback): any;
 @Component({
   selector: 'app-change-password',
@@ -7,11 +7,13 @@ declare function changePassword(data, callback): any;
 })
 export class ChangePasswordComponent implements OnInit {
   password = '';
+  @ViewChild('formRef')
+  myForm: any;
   showPassword = false;
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
   changePassword() {
-    changePassword({ password: this.password }, (err, data) => {});
+    changePassword({ password: this.password }, (err, data) => { });
   }
 }

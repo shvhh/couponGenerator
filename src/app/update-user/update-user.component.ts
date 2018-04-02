@@ -14,7 +14,8 @@ export class UpdateUserComponent implements OnInit {
     email: '',
     meter: '',
     category: 'A',
-    mobile: ''
+    mobile: '',
+    couponNumber: 0
   };
   dataLoadFailed = true;
   @ViewChild('formRef')
@@ -28,7 +29,7 @@ export class UpdateUserComponent implements OnInit {
 
   loadCustomerList() {
     loadFlatList((err, list) => {
-      console.log(list);
+
       this.flatList = list;
     });
   }
@@ -60,7 +61,8 @@ export class UpdateUserComponent implements OnInit {
           email: '',
           meter: '',
           category: 'A',
-          mobile: ''
+          mobile: '',
+          couponNumber: 0
         };
         this.dataLoadFailed = true;
         alert('User Updated Successfully');

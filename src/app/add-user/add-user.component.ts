@@ -15,7 +15,8 @@ export class AddUserComponent implements OnInit {
     email: '',
     meter: '',
     category: 'A',
-    mobile: ''
+    mobile: '',
+    couponNumber: 0
   };
   constructor() { }
 
@@ -34,7 +35,8 @@ export class AddUserComponent implements OnInit {
           email: '',
           meter: '',
           category: 'A',
-          mobile: ''
+          mobile: '',
+          couponNumber: 0
         };
         alert('User added Successfully');
       }

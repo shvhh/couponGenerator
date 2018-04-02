@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { AppComponent } from './app.component';
-
+import { RechargeComponent } from './recharge/recharge.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AddUserComponent } from './add-user/add-user.component';
@@ -42,7 +42,8 @@ import { PopupComponent } from './popup/popup.component';
     UpdateTeriffComponent,
     ChangePasswordComponent,
     HistoryComponent,
-    PopupComponent
+    PopupComponent,
+    RechargeComponent
   ],
   imports: [
     BrowserModule,
@@ -53,8 +54,7 @@ import { PopupComponent } from './popup/popup.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [
-    DataService],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

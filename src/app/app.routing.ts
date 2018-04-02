@@ -17,8 +17,9 @@ import { UpdateTeriffComponent } from './update-teriff/update-teriff.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { HistoryComponent } from './history/history.component';
 import { PopupComponent } from './popup/popup.component';
+import { RechargeComponent } from './recharge/recharge.component';
 const routes: Routes = [
-  { path: 'generatecoupon', component: DashboardComponent },
+  { path: 'generatecoupon', component: RechargeComponent },
   { path: 'adduser', component: AddUserComponent },
   { path: 'updateuser', component: UpdateUserComponent },
   { path: 'updatetarrif', component: UpdateTeriffComponent },

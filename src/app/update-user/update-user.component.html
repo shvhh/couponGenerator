@@ -14,9 +14,9 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-black label-floating is-empty">
 
-                                        <input list="browsers" (change)='loadDetails($event)' placeholder="Flat Number" class="form-control">
+                                        <input list="flatListInput" (change)='loadDetails($event)' placeholder="Flat Number" class="form-control">
 
-                                        <datalist id="browsers">
+                                        <datalist id="flatListInput">
                                             <option *ngFor="let flat of flatList" value="{{flat.flat}}">
 
                                         </datalist>
@@ -103,7 +103,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button [disabled]="myForm.invalid || dataLoadFailed" type="submit" (click)='updateDetails()' class="btn btn-danger pull-right">Add Customer</button>
+                            <button [disabled]="myForm.invalid || dataLoadFailed" type="submit" (click)='updateDetails()' class="btn btn-danger pull-right">Update Customer</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
