@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 declare const $: any;
 declare function loadFlatList(callback): any;
-declare function showRechargeHistory(queryArray, callback): any;
+declare function showRechargeHistory(queryArray, pageID, callback): any;
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
@@ -12,9 +13,13 @@ export class HistoryComponent implements OnInit {
   queryArray: any[] = [{ date: { $gte: 0 } }, { date: { $lt: 2145830400000 } }];
   historyList = [];
   flatList = [];
-  constructor() { }
+  pageID;
+  constructor(private router: Router) { }
 
-  ngOnInit() { this.loadCustomerList(); this.updatelist(); }
+  ngOnInit() {
+    this.pageID = this.router.url.split('/').pop();
+    this.loadCustomerList(); this.updatelist();
+  }
   loadCustomerList() {
     loadFlatList((err, list) => {
       this.flatList = list;
@@ -38,7 +43,7 @@ export class HistoryComponent implements OnInit {
   }
 
   updatelist() {
-    showRechargeHistory(this.queryArray, (err, list) => {
+    showRechargeHistory(this.queryArray, this.pageID, (err, list) => {
       this.historyList = list;
     });
 

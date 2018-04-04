@@ -8,20 +8,20 @@ declare function updateterrif(data, callback): any;
 })
 export class UpdateTeriffComponent implements OnInit {
   CategoryA = {
-    mainRateMain: '6',
-    mainRateDecimal: '2',
-    mainLimit: '2000',
-    DGRateMain: '10',
-    DGRateDecimal: '3',
-    DGLimit: '1000'
+    mainRateMain: '',
+    mainRateDecimal: '1',
+    mainLimit: '',
+    DGRateMain: '',
+    DGRateDecimal: '1',
+    DGLimit: ''
   };
   CategoryB = {
-    mainRateMain: '4',
-    mainRateDecimal: '2',
-    mainLimit: '750',
-    DGRateMain: '5',
+    mainRateMain: '',
+    mainRateDecimal: '1',
+    mainLimit: '',
+    DGRateMain: '',
     DGRateDecimal: '1',
-    DGLimit: '500'
+    DGLimit: ''
   };
   @ViewChild('formRef')
   myForm: any;

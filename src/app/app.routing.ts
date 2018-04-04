@@ -18,15 +18,20 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { HistoryComponent } from './history/history.component';
 import { PopupComponent } from './popup/popup.component';
 import { RechargeComponent } from './recharge/recharge.component';
+import { CustomerListComponent } from './customer-list/customer-list.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 const routes: Routes = [
   { path: 'generatecoupon', component: RechargeComponent },
   { path: 'adduser', component: AddUserComponent },
   { path: 'updateuser', component: UpdateUserComponent },
   { path: 'updatetarrif', component: UpdateTeriffComponent },
   { path: 'history', component: HistoryComponent },
-  { path: 'admin', component: PopupComponent },
+  { path: 'admin', component: AdminLoginComponent },
+  { path: 'admin-panel', component: AdminPanelComponent },
   { path: 'notifications', component: NotificationsComponent },
   { path: 'changepassword', component: ChangePasswordComponent },
+  { path: 'customers', component: CustomerListComponent },
   { path: '', redirectTo: 'generatecoupon', pathMatch: 'full' }
 ];
 

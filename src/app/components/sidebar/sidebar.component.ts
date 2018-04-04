@@ -10,7 +10,7 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
   {
     path: 'generatecoupon',
-    title: 'Genrate Coupon',
+    title: 'Generate Coupon',
     icon: 'dashboard',
     class: ''
   },
@@ -35,7 +35,7 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     path: 'admin',
-    title: 'Admin Panel',
+    title: 'Admin Login',
     icon: 'supervisor_account',
     class: ''
   },
@@ -43,6 +43,12 @@ export const ROUTES: RouteInfo[] = [
     path: 'changepassword',
     title: 'Change Password',
     icon: 'settings',
+    class: ''
+  },
+  {
+    path: 'customers',
+    title: 'Customer Details',
+    icon: 'people',
     class: ''
   },
   {
@@ -61,7 +67,7 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);

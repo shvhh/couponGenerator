@@ -26,6 +26,9 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
 import { HistoryComponent } from './history/history.component';
 import { DataService } from './data.service';
 import { PopupComponent } from './popup/popup.component';
+import { CustomerListComponent } from './customer-list/customer-list.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +46,10 @@ import { PopupComponent } from './popup/popup.component';
     ChangePasswordComponent,
     HistoryComponent,
     PopupComponent,
-    RechargeComponent
+    RechargeComponent,
+    CustomerListComponent,
+    AdminLoginComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,
