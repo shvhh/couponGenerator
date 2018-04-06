@@ -14,6 +14,12 @@ export class ChangePasswordComponent implements OnInit {
 
   ngOnInit() { }
   changePassword() {
-    changePassword({ password: this.password }, (err, data) => { });
+    changePassword({ password: this.password }, (err, data) => {
+      if (err) { alert('there is some technical issue please contact your vendoer immidiatly'); }
+      else {
+        this.password = '';
+        alert('password changed successfully');
+      }
+    });
   }
 }

@@ -5,5 +5,19 @@
     width: 100vw;
     height: 100vw;
     z-index: 9999;
-    background-color: aliceblue
+    background-color: white;
+    padding-left:calc(50vw - 300px);
+     padding-top:calc(50vh - 125px); 
+}
+.full-screen table
+{
+    width:600px;
+    font-size:20px
+}
+.full-screen table td{
+    padding:6px
+}
+
+.display-none {
+    display: none;
 }

@@ -21,6 +21,7 @@ import { RechargeComponent } from './recharge/recharge.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 const routes: Routes = [
   { path: 'generatecoupon', component: RechargeComponent },
   { path: 'adduser', component: AddUserComponent },
@@ -32,7 +33,7 @@ const routes: Routes = [
   { path: 'notifications', component: NotificationsComponent },
   { path: 'changepassword', component: ChangePasswordComponent },
   { path: 'customers', component: CustomerListComponent },
-  { path: '', redirectTo: 'generatecoupon', pathMatch: 'full' }
+  { path: '', component: UserLoginComponent }
 ];
 
 @NgModule({

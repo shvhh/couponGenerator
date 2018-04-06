@@ -29,6 +29,7 @@ import { PopupComponent } from './popup/popup.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,8 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
     RechargeComponent,
     CustomerListComponent,
     AdminLoginComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +63,7 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
     ReactiveFormsModule
   ],
   providers: [DataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [UserLoginComponent]
 })
 export class AppModule { }

@@ -51,7 +51,7 @@ export class UpdateUserComponent implements OnInit {
   }
   updateDetails() {
     updateCustomer(this.updateUser.flat, this.updateUser, (err, updated) => {
-      console.log(err, updated);
+
       if (err) { alert('There is some technical issue please contact you vendor'); }
       else {
         this.myForm.reset();

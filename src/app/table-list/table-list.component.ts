@@ -11,7 +11,7 @@ export class TableListComponent implements OnInit {
 
   ngOnInit() {
     $(document).ready(function () {
-      console.log($('#example'))// .DataTable();
+
     });
   }
 
