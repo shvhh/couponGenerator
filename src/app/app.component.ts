@@ -23,10 +23,11 @@ export class AppComponent implements OnInit {
     currentCoupon: any = null;
     loginScreen = true;
     loader = true;
-    constructor(public location: Location, private router: Router, private dataService: DataService, private activatedRoute: ActivatedRoute) { }
+    constructor(public location: Location,
+        private router: Router, private dataService: DataService, private activatedRoute: ActivatedRoute) { }
 
     ngOnInit() {
-        this.dataService.getLoaderStatus.subscribe(isLoader => { this.loader = isLoader; console.log(isLoader); });
+        this.dataService.getLoaderStatus.subscribe(isLoader => { this.loader = isLoader; });
         this.dataService.getLoginScreenStatus.subscribe(isLoginPage => { this.loginScreen = isLoginPage; });
         this.dataService.getRechargeCoupon.subscribe(coupon => { this.currentCoupon = coupon; });
         $.material.init();

@@ -21,7 +21,7 @@ export class AddUserComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.myForm);
+
   }
   addUser() {
     addCustomer(this.newUser, (err, data) => {
