@@ -1,0 +1,67 @@
+<div class="main-content">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">Generate Coupon</h4>
+                        <p class="category"></p>
+                    </div>
+                    <div class="card-content">
+                        <form #formRef="ngForm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <input list="browsers" (change)='loadDetails($event)' name='flatno' [(ngModel)]='flatNo' placeholder="Flat Number *" class="form-control">
+                                        <datalist id="browsers">
+                                            <option *ngFor="let flat of flatList" value="{{flat.flat}}">
+                                        </datalist>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-black label-floating is-empty">
+                                        <label style="display:inline-block">Customer Name:</label>
+                                        <h5 style="display:inline-block">
+                                            <b>{{currentUser.name}}</b>
+                                        </h5>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-black label-floating is-empty">
+                                        <label style="display:inline-block">Meter Id:</label>
+                                        <h5 style="display:inline-block">
+                                            <b>{{currentUser.meter}}</b>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label>Amount</label>
+                                        <select class="form-control" name='amount' [(ngModel)]='amount'>
+                                            <option value="100"> &#8377; 100</option>
+                                            <option value="500"> &#8377; 500</option>
+                                            <option value="1000"> &#8377; 1000</option>
+                                            <option value="1500"> &#8377; 1500</option>
+                                            <option value="2000"> &#8377; 2000</option>
+                                            <option value="2500"> &#8377; 2500</option>
+                                            <option value="3000"> &#8377; 3000</option>
+                                            <option value="3500"> &#8377; 3500</option>
+                                            <option value="4000"> &#8377; 4000</option>
+                                            <option value="4500"> &#8377; 4500</option>
+                                            <option value="5000"> &#8377; 5000</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" [disabled]='dataLoadFailed || myForm.invalid ' (click)='generateCoupon() ' class="btn btn-info pull-right">Generate Coupon</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

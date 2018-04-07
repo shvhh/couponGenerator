@@ -1,0 +1,40 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">Customers List</h4>
+                        <p class="category"></p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Sr No.</th>
+                                    <th>Meter Id.</th>
+                                    <th>Name</th>
+                                    <th>Flat Number</th>
+                                    <th>Mobile</th>
+                                    <th>Category</th>
+                                    <th>Number Of Coupons</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor='let customer of customerList;index as i;'>
+                                    <td>{{i+1}}</td>
+                                    <td>{{customer.meter}}</td>
+                                    <td>{{customer.name}}</td>
+                                    <td>{{customer.flat}}</td>
+                                    <td>{{customer.mobile}}</td>
+                                    <td>{{customer.category}}</td>
+                                    <td>{{customer.couponNumber}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

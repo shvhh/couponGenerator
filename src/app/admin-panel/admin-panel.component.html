@@ -1,0 +1,83 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">Coupon History</h4>
+                        <p class="category">Select following to shorten you Result</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <div class='col-md-4'>
+                            <span>From:</span>
+                            <input type='date' [ngModel]="queryObject.fromDate " (ngModelChange)="fromDateChange($event)" />
+                        </div>
+                        <div class='col-md-4'>
+                            <span style="margin-right:15px">To : </span>
+                            <input type='date' [ngModel]="queryObject.toDate " (ngModelChange)="toDateChange($event)" />
+                        </div>
+                        <div class='col-md-4'>
+                            <span>Flat:</span>
+                            <input list="flatListInput" (change)='listChange($event)' placeholder="Flat Number">
+
+                            <datalist id="flatListInput">
+                                <option *ngFor="let flat of flatList" value="{{flat.flat}}">
+
+                            </datalist>
+                        </div>
+                        <table style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Flat Number</th>
+                                    <th>Meter Number</th>
+                                    <th>Mobile</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Amount</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor='let recharge of historyList'>
+                                    <td>{{recharge.name}}</td>
+                                    <td>{{recharge.flat}}</td>
+                                    <td>{{recharge.meter}}</td>
+                                    <td>{{recharge.mobile}}</td>
+                                    <td>{{recharge.date | date}}</td>
+                                    <td>{{recharge.date | date:'shortTime'}}</td>
+                                    <td>{{recharge.amount}}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger" style="padding:5px;font-size: 15px" (click)='deleteCoupon(recharge)'>
+                                            <i class="material-icons">delete</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        <!--  <ul style='float:right' class="pagination">
+                            <li>
+                                <a [routerLink]="">1</a>
+                            </li>
+                            <li class="active">
+                                <a href="#">2</a>
+                            </li>
+                            <li>
+                                <a href="#">3</a>
+                            </li>
+                            <li>
+                                <a href="#">4</a>
+                            </li>
+                            <li>
+                                <a href="#">5</a>
+                            </li>
+                        </ul>-->
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

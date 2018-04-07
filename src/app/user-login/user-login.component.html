@@ -1,0 +1,55 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">{{signUpPage?'Registration Panel':'Login Panel'}}</h4>
+                        <p class="category">Id is only for Old customer</p>
+                    </div>
+                    <div class="card-content">
+                        <form #formRef="ngForm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="control-label">User Name</label>
+                                        <input type="text" class="form-control" [(ngModel)]="admin.username" name="username">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="control-label">Password</label>
+                                        <input type="password" class="form-control" [(ngModel)]="admin.password" name="password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf='signUpPage'>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Confirm Password</label>
+                                            <input type="password" class="form-control" [(ngModel)]="admin.repass" name="password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">ID(Optinal)</label>
+                                            <input type="number" class="form-control" [(ngModel)]="admin.Id" name="id">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button *ngIf='signUpPage' type="submit" (click)='register()' class="btn btn-info pull-right">Register</button>
+                            <button *ngIf='!signUpPage' type="submit" (click)='login()' class="btn btn-info pull-right">Login</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
